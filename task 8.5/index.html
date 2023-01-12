@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 8.5</title>
+</head>
+<body>
+    <script>
+        function swapPropertiesValues(obj) {
+        const newObj = {};
+    for (const key in obj) {
+    newObj[obj[key]] = key;
+  }
+  return newObj;
+    }
+
+    const exampleObj = { name: "John", age: 30, city: "New York" };
+    console.log(swapPropertiesValues(exampleObj));
+    </script>
+</body>
+</html>
