@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9.3</title>
+</head>
+<body>
+    <script>
+        function compareArrays(arr1, arr2) {
+         let commonItems = [];
+        for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+         if (arr1[i] === arr2[j]) {
+        commonItems.push(arr1[i]);
+      }
+    }
+  }
+  if (commonItems.length > 0) {
+    return commonItems;
+  } else {
+    return false;
+  }
+}
+    const food = ["Noodle", "Pasta", "Ice-cream","Meat", "Cucumber", "Olives"];
+    const food1 = ["Fries", "Ice-cream", "Pizza","Olives", "Hamburgers"];
+    console.log(compareArrays(food, food1));
+    </script>
+</body>
+</html>
