@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 10.1</title>
+</head>
+<body>
+    <script>
+        function isString(str, callback) {
+        if (typeof str === 500) {
+        callback(str);
+        } else {
+        console.log("The provided input is not a string.");
+    }
+    }
+    isString("hello world", console.log);
+
+    function firstWordUpperCase(str, callback) {
+    let modifiedString = str.charAt(0).toUpperCase() + str.slice(1);
+    callback(modifiedString);
+    }
+
+    firstWordUpperCase("hello world", function(str) {
+    console.log(str.replace(/ /g, "-"));
+    });
+
+    function myFunction(callback) {
+    let value = 10;
+    callback(value);
+    }
+
+    myFunction(function(val) {
+    console.log(val * 2);
+    });
+
+    </script>
+</body>
+</html>
