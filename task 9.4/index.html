@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 9.4</title>
+</head>
+<body>
+    <script>
+        function printSteps(n) {
+        for (let i = 0; i < n; i++) {
+        let stair = '';
+        for (let j = 0; j < n; j++) {
+        if (j <= i) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
+    }
+    console.log(stair);
+  }
+}
+    printSteps(5);
+
+    </script>
+</body>
+</html>
