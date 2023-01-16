@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 12.2</title>
+</head>
+<body>
+    <script>
+        const candyStore = {
+    candies: [
+    {
+    name: "mint gum",
+    id: "as12f",
+    price: 2,
+    amount: 2
+    },
+    {
+    name: "twix",
+    id: "5hd7y",
+    price: 5,
+    amount: 4
+    },
+    ],
+    cashRegister: 200
+    }
+    function getCandy(candyStore, id){
+         return candyStore.candies.find(candy => candy.id === id);
+    }
+    const candy = getCandy(candyStore, "5hd7y");
+    console.log(candy); 
+
+    function getPrice(candyStore, id) {
+    const candy = candyStore.candies.find(candy => candy.id === id);
+    return candy ? candy.price : undefined;
+  }
+  const price = getPrice(candyStore, "as12f");
+  console.log(price);
+
+  function addCandy(candyStore, id, name, price) {
+  candyStore.candies.push({id: id, name: name, price: price, amount: 1});
+ }
+
+ addCandy(candyStore, "6jk8l", "Snickers", 3);
+
+ console.log(candyStore);
+
+    function buy(candyStore, id) {
+    const candy = candyStore.candies.find(candy => candy.id === id);
+    if(candy){
+        candyStore.cashRegister += candy.price;
+    }
+}
+buy(candyStore, "6jk8l");
+console.log(candyStore);
+
+    </script>
+</body>
+</html>
