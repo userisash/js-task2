@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 12.1</title>
+</head>
+<body>
+    <script>
+        const library = [
+    {
+    author: "Bill Gates",
+    title: "The Road Ahead",
+    readingStatus: true
+    },
+    {
+    author: "Steve Jobs",
+    title: "Walter Isaacson",
+    readingStatus: true
+    },
+    {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    readingStatus: false
+    }
+    ]
+
+        function displayReadableBooks(library) {
+        library.forEach(book => {
+        if (book.readingStatus === true) {
+      console.log(`Name: ${book.title}, Author: ${book.author}, Status: ${book.readingStatus}`);
+        }
+    });
+    }
+    console.log(displayReadableBooks(library));
+
+    </script>
+</body>
+</html>
