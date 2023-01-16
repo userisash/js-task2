@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 11.2</title>
+</head>
+<body>
+    <script>
+        const nums = [2, 4, 6, 8];
+        function doubleValues(n){
+            console.log(n * 2);
+        }
+         nums.forEach(doubleValues);
+
+
+         const nums2 = [1, 2, 3, 4, 5, 6, 7, 8];
+        function onlyevenvalues(num){
+            if(num % 2===0){
+                console.log(num)
+            }else{
+                console.log("it's odd");
+            }
+        }
+        nums.forEach(onlyevenvalues);
+
+        const guy = ["name: guy", 40, "town: elat" ];
+        const guy2 = [];
+        function showFirstandLast(){
+            guy.forEach(el => {
+                if(typeof(el) === 'string'){
+                   guy2.push(el);
+                }
+            })
+            console.log( showFirstandLast());
+        }
+
+       
+    function vowelCount(string) {
+    const vowels = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0};
+    string = string.toLowerCase();
+    [...string].map(char => {
+        if(vowels[char]) {
+            vowels[char]++;
+        }
+    });
+    console.log(vowelCount());
+    return vowels;
+}
+
+    const words =['hi', 'hello']
+
+    const  capitalize = words.map(function(word){
+        return word.toUpperCase();
+    })
+
+    function shiftletters(str) {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const shiftedString = str.split('').map(char => {
+    const charIndex = alphabet.indexOf(char);
+    if (charIndex === -1) {
+      return char;
+    }
+    const shiftedIndex = (charIndex + 1) % 26;
+    return alphabet[shiftedIndex];
+    }).join('');
+    console.log(shiftedString);
+    }
+    shiftletters("abcdefghijklmnopqrstuvwxyz");
+
+
+      function swapCase(str) {
+      return str.split(" ").map((word, index) => {
+      if (index % 2 === 0) {
+      return word.toUpperCase();
+    } else {
+      return word.toLowerCase();
+    }
+  }).join(" ");
+}
+    console.log(swapCase('ash araj guy'));
+    
+    </script>
+</body>
+</html>
