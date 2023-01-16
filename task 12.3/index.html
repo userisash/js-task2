@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 12.3</title>
+</head>
+<body>
+    <script>
+        const school = {
+    teachers: [
+    {
+    id: 1,
+    name: "Pinchas",
+    subjects: ["chemistry", "biology", "physics"],
+    students: [],
+    capacityLeft: 3,
+    },
+    {
+    id: 2,
+    name: "Williams",
+    subjects: ["history", "ethics"],
+    students: [],
+    capacityLeft: 2,
+    },
+    ],
+    students: [
+    {
+    id: 10,
+    name: "Jennifer",
+    age: 20,
+    },
+    {
+    id: 11,
+    name: "Howard",
+    age: 23,
+    },
+    {
+    id: 12,
+    name: "Old-Timmy",
+    age: 86,
+    },
+    {
+    id:13,
+    name: "Houston",
+    age: 21,
+    },
+    ],
+    };
+
+    school.findPerson = function(type, id) {
+    if (type === "student") {
+    return this.students.find(student => student.id === id);
+  } else if (type === "teacher") {
+    return this.teachers.find(teacher => teacher.id === id);
+  }
+  };
+  console.log(school.findPerson("student", 10));
+  console.log(school.findPerson("teacher", 2));
+
+  school.assignStudent = function(studentId, subject) {
+  const student = this.findPerson("student", studentId);
+  const availableTeacher = this.teachers.find(teacher => 
+    teacher.subjects.includes(subject) && teacher.capacityLeft > 0
+  );
+  if (availableTeacher) {
+    availableTeacher.students.push(student);
+    availableTeacher.capacityLeft--;
+  } else {
+    console.log("Sorry, no available teachers left");
+  }
+};
+
+  school.assignStudent(10, "chemistry");
+  const student = school.findPerson("student", 10);
+  let teacher = school.findPerson("teacher", student.teacherId);
+  console.log(`${student.name} was assigned to ${teacher.name}`);
+
+  school.assignStudent(11, "math"); 
+
+  school.assignTeachersSubject = function(teacherId, newSubject) {
+  const teacher = this.findPerson("teacher", teacherId);
+  if (!teacher.subjects.includes(newSubject)) {
+    teacher.subjects.push(newSubject);
+  }
+};
+
+console.log(`${teacher.name}'s subjects: ${teacher.subjects}`);
+
+// will show all students with age 25
+school.assignNewAge = function(newAge) {
+  this.students.forEach(student => {
+    student.age = newAge;
+  });
+}
+
+school.assignNewAge(25);
+console.log(school.students); 
+
+
+    </script>
+</body>
+</html>
