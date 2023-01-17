@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 14.1</title>
+</head>
+<body>
+    <script>
+        const nums = [1, 5, 8, 14, 16, 20];
+       const sum = nums.reduce((acu, curvalue) => {
+            return acu + curvalue;
+        })
+        console.log(sum);
+        
+        const maxVal = nums.reduce((max, currvalue)=>{
+            if(currvalue > max) return currvalue;
+            return max;
+        })
+        console.log(maxVal);
+
+
+    const sumEvens = arr => arr.filter(e => !(e % 2)).reduce((a, b) => a + b);
+
+    console.log(sumEvens(nums));
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 13.2</title>
+</head>
+<body>
+    <script>
+        const foods = ["falafel", "sabich", "hummus",
+        "pizza with extra pineapple"];
+        foods.sort();
+        console.log(foods);
+        foods.reverse();
+        console.log(foods);       
+        
+        const foodsWithUpperCase = [
+        "falafel",
+        "Sabich",
+        "hummus",
+        "pizza with extra pineapple",
+        ];
+
+        foodsWithUpperCase.sort();
+        console.log(foodsWithUpperCase);
+        foodsWithUpperCase.reverse();
+        console.log(foodsWithUpperCase); 
+
+        const words = ["apple",
+        "supercalifragilisticexpialidocious",
+        "hi", "zoo"];
+
+        words.sort((a, b) => b.length - a.length);
+        console.log(words);
+
+    </script>
+</body>
+</html>
