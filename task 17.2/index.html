@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 17.2</title>
+</head>
+<body>
+    <script>
+        //block 1
+        (function immediateA(a) {
+        return (function immediateB(b) {
+        console.log(a);
+        })(1);
+        })(0);
+
+        // The output will be 0. The outer function is immediately invoked with the argument 0, which is assigned to the variable 'a'. 
+        // The inner function is also immediately invoked with the argument 1, but it only logs the value of 'a' which is 0.
+
+       //block 2
+        let count = 0;
+        (function immediate() {
+        if (count === 0) {
+        let count = 1;
+        console.log(count);
+        }
+        console.log(count);
+        })();     
+
+        // he output will be 1 and 0. The outer function is immediately invoked, and in it the variable 'count' is declared and assigned the value 0. 
+        // The if statement is true, so 'count' is reassigned the value 1, and then logged to the console. Then the value of 'count' is logged again, which is 0.   
+
+
+        //block 3
+        var module = (function () {
+        var foo = 'foo'
+        function addToFoo (bam) {
+        foo = bam;
+        return foo;
+        }
+        var publicInterface = {
+        bar: function () {
+        return 'bar';
+        },
+        bam: function () {
+        return addToFoo('bam')
+        }
+        }
+        return publicInterface  
+        })()
+        console.log(module.bar())
+        console.log(module.bam())
+        
+        // The output will be 1 and 0. The outer function is immediately invoked, and in it the variable 'count' is declared and assigned the value 0. 
+        // The if statement is true, so 'count' is reassigned the value 1, and then logged to the console. Then the value of 'count' is logged again, which is 0.
+
+
+        //block 4
+        function createIncrement() {
+        let count = 0;
+        function increment() {
+        count++;
+        }
+        let message = `Count is ${count}`;
+        function log() {
+        console.log(message);
+        }
+        return [increment, log];
+        }
+        const [increment, log] = createIncrement();
+        increment();
+        increment();
+        increment();
+        log();
+
+        // The output will be "bar" and "bam". The module is an immediately invoked function expression (IIFE) that returns an object with two methods - bar() and bam(). 
+        // bar() returns the string 'bar' and bam() returns the result of the addToFoo() function, which sets the value of the private variable foo to 'bam' and returns it. 
+        // The first console.log() logs the result of calling the bar() method, the second console.log() logs the result of calling the bam() method.
+
+        //block 5
+        var x = 10;
+        console.log(x);
+        if (true) {
+        (function() {
+        var x = 20;
+        console.log(x);
+        })();
+        }
+        console.log(x);
+
+        // he output will be 10 and 20. The variable x is declared and assigned the value 10. 
+        // The anonymous function is immediately invoked and declares a new variable x with the value 20, which is logged to the console. 
+        // Then the outer x variable is logged to the console, which still has the value 10.
+
+        //block 6
+        var x = 10;
+        console.log(x);
+        function test(){
+        var x = 20;
+        console.log(x);
+        if (x > 10) {
+        let x = 30;
+        console.log(x);
+        }
+        console.log(x);
+        }
+        test();
+        console.log(x);
+
+        // The output will be 10, 20, 30, 20, 10. The variable x is declared and assigned the value 10. The function test() is invoked, it declares and assigns a new variable x with the value 20, 
+        // which is logged to the console. The if statement is true, so it declares and assigns a new variable x with the value 30 which is logged to the console. Then, 
+        // the variable x inside the test function is logged to the console which still has the value 20. Finally, the variable x outside of the function is logged to the console which still has the value 10.
+
+        //block 7
+        var x;
+        x = 10;
+        function test(){
+        var x;
+        if (x > 20) {
+        x = 50;
+        }
+        console.log(x);
+        }
+        test();
+
+        // The output will be undefined. The variable x is declared but not assigned any value. The function test() is invoked, it declares a variable x but not assigning any value, 
+        // and the if statement is false, so the x variable is not re-assigned any value. Then, the variable x inside the test function is logged to the console which is undefined.
+
+        //block 8
+        function test(){
+        var x, y;
+        if (false) {
+        x = 50;
+        }
+        console.log(x);
+        console.log(y);
+        y = 100;
+        console.log(y);
+        }
+        test();
+
+        // The output will be undefined, undefined, 100. The function test() declares two variables x and y, but they are not assigned any value. 
+        // The if statement is false, so the variable x is not re-assigned any value. Then, the variable x inside the test function is logged to the console which is undefined. 
+        // Then, the variable y inside the test function is logged to the console which is also undefined. Finally, the variable y is assigned a value of 100 and logged to the console
+        
+        //block 9
+        function test(){
+        foo();
+        bar();
+        function foo(){
+        console.log('foo');
+        }
+        var bar = function() {
+        console.log('bar');
+        }
+        }
+        test();
+
+        // The output will be 'foo' and 'bar'. The function test() declares a function foo and a variable bar. The function foo is invoked first, it logs 'foo' to the console. Then the variable bar is reassigned as a function, 
+        // which is invoked next, and it logs 'bar' to the console. Since function declarations are hoisted to the top of the code and variable declarations are not, 
+        // the function foo is available to call before it is declared, but the variable bar is not yet a function when it is first encountered, it is only later reassigned as a function, so it can be invoked correctly.
+        
+    </script>
+</body>
+</html>
