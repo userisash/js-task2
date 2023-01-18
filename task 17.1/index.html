@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 17.1</title>
+</head>
+<body>
+    <script>
+        //block 1
+        var b = 1;
+        function someFunction(number) {
+        function otherFunction(input) {
+        return b;
+        }
+        b = 5;
+        return otherFunction;
+        }
+        var firstResult = someFunction(9);
+        var result = firstResult(2);
+
+        // The result of the first block of code will be 5. The function someFunction is defined with a parameter number which is not used in the function.
+        // It creates an inner function otherFunction which returns the value of the variable b. The value of b is then set to 5 and the inner function otherFunction is returned. 
+        // When the variable firstResult is set to the result of calling someFunction(9), it is set to the returned inner function. Then when firstResult(2) is called, 
+        // it calls the inner function otherFunction which returns the value of b, which at this point is 5.
+
+        //block 2
+        var a = 1;
+        function b2() {
+        a = 10;
+        return;
+        function a() { }
+        }
+        b2();
+        console.log(a);
+
+        // The result of the second block of code will be 10. The variable a is defined and set to 1. The function b2 is defined, which reassigns the variable a to 10 and then immediately returns. 
+        // The function b2 is called and the variable a is reassigned to 10. The function a is also defined inside the function b2, but that function definition doesn't affect the variable a which is already defined and reassigned to 10, 
+        // so the output of console.log(a) is 10.
+
+        //block 3
+        let i;
+        for (i = 0; i < 3; i++) {
+        const log = () => {
+        console.log(i);
+        }
+        setTimeout(log, 100);
+        }
+        // The result of the third block of code will be 3, 3 and 3. The variable i is defined and initialized to 0. The for loop will run 3 times and at each iteration, 
+        // it will create a new function log and set it to the timeout callback. 
+        // However, since the for loop has already completed, the value of i is 3 at the time the function is set to the timeout. That means all three function calls log 3.
+
+    </script>
+</body>
+</html>
