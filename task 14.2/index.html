@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 14.2</title>
+</head>
+<body>
+    <script>
+        const arr = [{
+        'b': 'foo',
+        'c': 'bar',
+        'a': 'baz'
+         }];
+         function extractOnlyValue(arr, key) {
+        const extractedValues = arr.reduce((acc, obj) => {
+        acc.push(obj[key]);
+        return acc;
+        }, []);
+        console.log(extractedValues);
+        return extractedValues;
+    }
+
+     function countOnlyVowels(str) {
+     const vowels = "aeiouAEIOU";
+     const countedVowels = str.split("").reduce((acc, char) => {
+        if (vowels.indexOf(char) !== -1) {
+            if (acc[char]) {
+                acc[char]++;
+            } else {
+                acc[char] = 1;
+            }
+        }
+        return acc;
+         }, {});
+         console.log(countedVowels);
+         return countedVowels;
+    }
+
+    function addKeyAndValue(arr, key, value) {
+    const result = arr.map(obj => {
+        obj[key] = value;
+        return obj;
+    });
+    console.log(result);
+    return result;
+    }
+
+        
+    </script>
+</body>
+</html>
