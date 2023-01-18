@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 15.1</title>
+</head>
+<body>
+    <script>
+        function getSum(arr1, arr2){
+        let sum;
+        for (let i=0; i < arr1.length; i++){
+        sum += arr1[i];
+        }
+        for (let i=0; i < arr2.length; i++){
+        sum += arr2[i];
+        }
+        return sum;
+        }   
+        console.log(getSum([1,2,3], [5,66,23]));
+
+        //the bugs were in line 12 & line 19 
+        // i used breakpoints to find the bugs
+        // the veriable sum was a const and was assigned the value of 0 so when we wrote sum += arr1[i] it took it
+        //reassigning/declaring sum witch is not possible due to it being a const.
+        // the code was also missing a return statement.
+
+        //the fixed code still returns not a number
+        //please note thati solved the task from my understanding of js so far 
+    </script>
+</body>
+</html>

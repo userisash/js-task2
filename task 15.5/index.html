@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 15.5</title>
+</head>
+<body>
+    <script>
+        function countOccurrences (str, char){
+        let counter = 0 ;
+        for ( let i = 0 ; i < str .length; i ++ ){
+        if ( str . charAt ( i ) === char ){
+        counter = counter + 1;
+        }
+        } 
+        return counter ;
+        }
+        console.log(countOccurrences ( "ini mini miny moe" , "n" ));
+
+        // the bug was in line 15 (counter +1)
+        // i used console.log to find it
+        // the bug was that when we used the '+' operator the counter value remained
+        //unchanged so i used the '=' operator instead 
+
+    </script>
+</body>
+</html>

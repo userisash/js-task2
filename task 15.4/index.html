@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 15.4</title>
+</head>
+<body>
+    <script>
+        function calcAverage (arr){
+        var sum = 0;
+        for ( var i = 0 ; i < arr .length; i ++ ){
+        sum += arr [ i ];
+        } return sum ;
+        }
+       console.log(calcAverage ([ 85 , 90 , 92 ]));
+
+       // the bug was with the declaration of the variable (line 12)
+       // i loged the code to the console and used breakpoints to check the value
+       // sum at different areas of the code
+    </script>
+</body>
+</html>
