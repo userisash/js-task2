@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 16.2</title>
+</head>
+<body>
+    <script>
+        //block 1
+        var x = 10;
+        console.log(x);
+        if (true) {
+        var x = 20;
+        console.log(x);
+        }
+        console.log(x);
+
+        // The first console.log will output 10, the second console.log will output 20, and the third console.log will also output 20. 
+        // This is because the variable x is declared with the var keyword, which makes it function scoped, and not block scoped. 
+        // Therefore, when the variable x is re-assigned the value 20 inside the if block, the value of x
+        //  outside the if block is also updated to 20.
+
+        //block 2
+        var x = 10;
+        console.log(x);
+        if (true) {
+        (function() {
+        var x = 20;
+        console.log(x);
+        })();
+        }
+        console.log(x);
+
+        // The first console.log will output 10, the second console.log will output 20, and the third console.log will output 10. 
+        // This is because the variable x is defined inside an IIFE (immediately invoked function expression), which creates a new scope. 
+        // Therefore, the variable x inside the IIFE does not affect the variable x outside the IIFE.
+
+        //block 3
+        var x = 10;
+        console.log(x);
+        function test(){
+        var x = 20;
+        console.log(x);
+        if (x > 10) {
+        let x = 30;
+        console.log(x);
+        }
+        console.log(x);
+        }
+        test();
+        console.log(x);
+
+        // The first console.log will output 10, the second console.log will output 20, the third console.log will output 20, and the last console.log will output 10. 
+        // This is because the variable x inside the test function is a different variable than the variable x outside the test function. Inside the if block, 
+        // the variable x is re-declared with the let keyword, which creates a new variable x that is block scoped. But since the condition x > 10 is false , 
+        // the inner block is not executed and the inner x is not in scope so the inner console.log(x) is not executed.
+
+        //block 4
+        var x;
+        x = 10;
+        function test(){
+        var x;
+        if (x > 20) {
+        x = 50;
+        }
+        console.log(x);
+        }
+        test();
+
+        // The output will be "undefined". This is because the variable x inside the test function is a different variable than the variable x outside the test function. 
+        // The variable x inside the test function is declared but never initialized so it's value is undefined.
+
+        //block 5
+        function test(){
+        var x, y;
+        if (false) {
+        x = 50;
+        }
+        console.log(x);
+        console.log(y);
+        y = 100;
+        console.log(y);
+        }
+        test();
+
+        // The first console.log will output "undefined", the second console.log will output "undefined" and the third console.log will output 100. 
+        // This is because the variable x is declared but not initialized,
+        //  so it has the value of "undefined". The variable y is also declared but not initialized, so it also has the value of "undefined". 
+        // When y is re-assigned the value 100, the last console.log will output 100.
+
+        //block 6 
+        function test(){
+        foo ();
+        bar();
+
+        function foo(){
+        console.log('foo');
+        }
+
+        var bar = function() {
+        console.log('bar');
+        }
+        }
+        test();
+        
+        // The output will be "foo" and "bar". This is because the function foo is defined using a function declaration, which makes it hoisted to the top of the scope. 
+        // Therefore, the function foo is defined before it is called. The function bar is defined using a function expression and is assigned to a variable. 
+        // Therefore, it is not hoisted and can only be called after it is defined.
+    </script>
+</body>
+</html>
