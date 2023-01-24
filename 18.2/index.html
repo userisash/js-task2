@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible"
+content="IE=edge" />
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0" />
+<title>Modifying Elements</title>
+</head>
+<style>
+h1 {
+color: red;
+}
+p {
+font-size: 20px;
+}
+</style>
+<body>
+<h1 class="color">
+I hate the color red. If only I was blue and I
+can sing "Im blue da da di da da daaa"
+</h1>
+<p class="paragraph">I wish I was bigger</p>
+<div id="description">
+Select me and change my display property
+</div>
+</body>
+<script>
+   const h1color = document.getElementsByClassName('color')[0];
+   h1color.style.color = 'blue'; 
+   console.log(h1color);
+
+   const psize = document.getElementsByTagName('p')[0];
+   psize.style.fontSize = "30px";
+   console.log(psize);
+
+   const dis = document.getElementById('description');
+   dis.style.display = 'inline-block';
+
+   const bgcolor = document.getElementsByTagName('body')[0];
+   bgcolor.style.backgroundColor = 'green';
+
+   const ntitle = document.getElementsByTagName('title')[0];
+   ntitle.innerText = 'new modifier';
+</script>
