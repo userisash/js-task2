@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>input</title>
+</head>
+<body>
+    <form id="verification-form">
+        <div id="input-container"></div>
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+    
+    <script>
+        const form = document.querySelector("#verification-form");
+        const inputContainer = document.querySelector("#input-container");
+        const submitButton = document.querySelector("#submit-button");
+
+        // create 6 input fields and add them to the input container
+        for (let i = 0; i < 6; i++) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.maxLength = 1;
+        input.classList.add("verification-input");
+        input.addEventListener("input", handleInput);
+        inputContainer.appendChild(input);
+        }
+
+       const inputs = document.querySelectorAll(".verification-input");
+
+       form.addEventListener("submit", handleSubmit);
+       form.addEventListener("paste", handlePaste);
+
+        function handleInput(e) {
+        if (e.target.value.length === 1) {
+        const nextInput = inputs[Array.from(inputs).indexOf(e.target) + 1];
+        if (nextInput) {
+            nextInput.focus();
+        }
+        }
+        }
+
+        function handleSubmit(e) {
+        e.preventDefault();
+        const code = Array.from(inputs).map(input => input.value).join("");
+        if (code.length !== 6) {
+        alert("Please enter a valid 6-digit code");
+        } else {
+        alert('thank you for submitting');
+        }
+        }
+
+        function handlePaste(e) {
+        e.preventDefault();
+        const clipboardData = e.clipboardData || window.clipboardData;
+        if (clipboardData) {
+        const code = clipboardData.getData("text").trim();
+        if (code.length === 6) {
+            inputs.forEach((input, index) => {
+                input.value = code[index];
+            });
+            inputs[0].focus();
+        } else {
+            alert("Please paste a 6-digit code");
+        }
+        }
+        }
+    </script>
+</body>
+</html>
