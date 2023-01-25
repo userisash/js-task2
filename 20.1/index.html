@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Age Checker</title>
+</head>
+<body>
+  <label for="age">Enter your age:</label>
+  <input type="text" id="age" name="age">
+  <button id="submit-btn">Submit</button>
+  <p id="message"></p>
+
+  <script>
+    const submitBtn = document.getElementById("submit-btn");
+    submitBtn.addEventListener("click", checkAge);
+
+    function checkAge() {
+      const age = document.getElementById("age").value;
+      const message = document.getElementById("message");
+      if (age >= 18) {
+        alert("You can drink.");
+      } else {
+        alert("You're too young.");
+      }
+    }
+  </script>
+</body>
+</html>
