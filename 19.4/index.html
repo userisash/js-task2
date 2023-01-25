@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gym</title>
+</head>
+<body>
+    <header id="main-hed"></header>
+    <section id="work-tips">
+        <ul class="un-l" style="display: flex;" gap:10px;></ul>
+    </section>
+    <footer></footer>
+    <script>
+
+       document.getElementById("main-hed").style.backgroundImage = "url('imgs/download.jpeg')";
+       document.getElementById("main-hed").style.backgroundRepeat = "no-repeat";
+       document.getElementById("main-hed").style.backgroundSize = "cover";
+       document.getElementById("main-hed").style.backgroundPosition = "center center";
+       document.getElementById("main-hed").style.display = "flex";
+       document.getElementById("main-hed").style.justifyContent = "center";
+       document.getElementById("main-hed").style.alignItems = "center";
+       document.getElementById("main-hed").style.height = '300px'
+
+        const h1 = document.createElement("h1");
+        const h1Text = document.createTextNode("Gym Workout Tips");
+        h1.appendChild(h1Text);
+        document.getElementById("main-hed").appendChild(h1);
+        h1.style.color = '#ffffff';
+
+        
+        const tips =document.querySelector('.work-tips');
+        const ul = document.querySelector('.un-l');
+        const h2 = document.createElement('h2');
+        const h2Text = document.createTextNode('List of Workout Tips');
+        h2.appendChild(h2Text);
+        document.body.appendChild(h2);
+        document.body.appendChild(ul);
+        for (let i = 1; i <= 2; i++) {
+        const li = document.createElement('li');
+        const liText = document.createTextNode('List item ' + i);
+        li.appendChild(liText);
+        ul.appendChild(li);
+        }
+        ul.firstChild.textContent = "Lift weights“If you just do cardio, you’re sabotaging yourself,” says Jacob Wilson, Ph.D., certified strength and conditioning specialist and associate editor of the Journal of Strength and Conditioning Research. “Your metabolism will actually go down, making weight loss more difficult. Resistance training, however, builds muscle to increase your metabolic rate.” That explains why, in one Harvard School of Public Health study of 10,500 adults, those who spent 20 minutes a day weight training gained less abdominal fat over the course of 12 years (compared to those who spent the same amount of time performing cardio)."
+        ul.lastChild.textContent ="Listen to musicEveryone knows that your favorite tunes can fire you up for a workout, but in one Indian Journal of Physiology and Pharmacology of 30 men and women, people who listened to music (especially slow music) after their workout recovered faster than did those who went sans tunes. “Music boosts the body’s levels of serotonin and dopamine, hormones that are known to foster recovery,” says Perkins . Try listening to a few of your favorite, most relaxing tracks as soon as you finish your workout. It will help your blood pressure and heart rate get back to normal and recovery happen ASAP."
+
+        const foot = document.querySelector('footer');
+        foot.style.backgroundColor = '#333';
+        foot.style.height = '250px';
+        document.body.appendChild(foot);
+
+    </script>
+</body>
+</html>
