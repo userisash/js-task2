@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 90px;
+    margin: 200px;
+    margin-left: 250px;
+}
+
+#textArea{
+    width: 100%;
+    height: 60%;
+}
+
+#submitButton{
+    width: 20%;
+    background: none;
+    margin-top: 10px;
+    margin-left: 180px;
+}
+#submitButton:hover{
+    background: #333;
+    color: #fff;
+}
