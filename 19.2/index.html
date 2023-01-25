@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19.2</title>
+</head>
+<body>
+    <script>
+        const users = [
+        {
+        id: 167464,
+        firstName: "Jimmy",
+        lastName: "Arnold",
+        email: "jimmya@gmail.com",
+        },
+        {
+        id: 578447,
+        firstName: "Martha",
+        lastName: "Goldman",
+        email: "gold@hotmail.com",
+        },
+        {
+        id: 864578,
+        firstName: "Tim",
+        lastName: "Burton",
+        email: "timmy.hotmail.com",
+        },
+        ];
+
+        const usersList = document.createElement("ol");
+        users.forEach(user => {
+        const userLi = document.createElement("li");
+        userLi.textContent = `${user.firstName} ${user.lastName}`;
+        usersList.appendChild(userLi);
+        });
+        document.body.appendChild(usersList);
+        usersList.style.listStyleType = "none";
+
+        users.forEach(user => {
+        const userLi = document.createElement("li");
+        userLi.textContent = `${user.firstName} ${user.lastName}`;
+        userLi.setAttribute("data-id", user.id);
+         usersList.appendChild(userLi);
+        });
+
+
+    </script>
+</body>
+</html>
