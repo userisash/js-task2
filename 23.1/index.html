@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23.1</title>
+</head>
+<body>
+    <script>
+        // question 1
+        console.log(this);
+        //In global scope, this refers to the window object
+
+        //question 2
+        // const myObj = {
+        // name: "Timmy",
+        // greet: () => {
+        // console.log(`Hello ${this.name}`);
+        // },
+        // };
+        // myObj.greet();
+        //a. In arrow function greet, this will refer to the parent scope (global scope), 
+        //because arrow functions do not have their own this context.
+        //fixed code below:
+        const myObj = {
+        name: "Timmy",
+        greet: function() {
+        console.log(`Hello ${this.name}`);
+        },
+        };
+        myObj.greet();
+
+
+        //question 3
+        const myFuncDec = function () {
+        console.log(this);
+        };
+        //In function declaration myFuncDec, this refers to the object that invokes the function,
+        
+
+        //question 4
+        const myFuncArrow = () => {
+        console.log(this);
+        };
+        myFuncArrow();
+        //In arrow function myFuncArrow, this will refer to the parent scope (global scope), 
+        //because arrow functions do not have their own this context.
+
+        //question 5
+        // document.querySelector(".element").addEventListener(() => {
+        // console.log(this);
+        // });
+        //a. In the event listener, this will refer to the DOM element that triggered the event.
+        // a fix for it could be:
+        document.querySelector(".element").addEventListener(function() {
+        console.log(this);
+        }.bind(this));
+
+        
+    </script>
+</body>
+</html>
