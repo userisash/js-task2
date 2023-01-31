@@ -1,0 +1,22 @@
+@Import Url('Https://Fonts.Googleapis.Com/Css2?Family=Nunito&Display=Swap');
+body{
+    background: #ccc;
+    color:#fff;
+    Font-Family: 'Nunito', Sans-Serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    margin: 170px;
+    margin-bottom: 100px;
+    margin-left: 370px;
+    border: #000 2px solid;
+    border-radius: 50%;
+}
