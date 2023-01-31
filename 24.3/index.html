@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24.3</title>
+</head>
+<body>
+    <script>
+       const data = [1, 2, 3, 4, 5];
+
+Array.prototype.myFilter = function (fn) {
+  const filtered = []; 
+
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i])) {
+      filtered.push(this[i]);
+    }
+  }
+
+  return filtered;
+};
+
+const filteredData = data.myFilter(function (el) {
+  if (el > 2) return el;
+});
+
+console.log(filteredData); 
+
+
+
+    Array.prototype.myFind = function(fn) {
+        const found =[]
+
+    for (let i = 0; i < this.length; i++) {
+        if (fn(this[i], i, this)) {
+            found.push(this[i]);
+        }
+    }
+
+    return found;
+};
+const foundData = data.myFind(function(el){
+    if (el >2) return el
+})
+
+    console.log(foundData)
+
+
+
+    Array.prototype.myReduce = function(callback, initialValue) {
+    let accumulator = (initialValue === undefined) ? undefined : initialValue;
+    for (let i = 0; i < this.length; i++) {
+        if (accumulator !== undefined) {
+            accumulator = callback(accumulator, this[i], i, this);
+        } else {
+            accumulator = this[i];
+        }
+    }
+    return accumulator;
+};
+
+    </script>
+</body>
+</html>
