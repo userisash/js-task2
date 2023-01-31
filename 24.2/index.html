@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24.2</title>
+</head>
+<body>
+    <script>
+        function Pokemon(pokemonName, pokemonType, pokemonAttackList){
+        this.name = pokemonName;
+        this.type = pokemonType;
+        this.attackList = pokemonAttackList;
+        this.CallPokemon = function(){
+                console.log("I Choose You", `${this.name}`)
+          }
+        this.Attack = function(i){
+                console.log(`${this.attackList[i]}`)
+            }
+        }
+
+        const pokeis =[
+            new Pokemon('Pikachu', 'Electric', [
+                "Volt Tackle",
+                "Electroweb",
+                "Electro Ball."
+            ]),
+            new Pokemon('Cosmog', 'psychic', [
+                "Splash",
+                "Teleport" 
+            ]),
+            new Pokemon('Swablu', 'Normal', [
+                "Growl",
+                "Fury Attack"
+            ])
+        ]
+        
+        pokeis[2].CallPokemon();
+        pokeis[2].Attack(1)
+
+
+    </script>
+</body>
+</html>
