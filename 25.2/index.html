@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.2</title>
+</head>
+<body>
+    <div id="name"></div>
+
+    <script>
+      const object = {
+      name: 'ashraf',
+      printName: function() {
+      console.log(this.name);
+      document.getElementById('name').innerHTML = this.name;
+      },
+      delayedPrint: function() {
+      setTimeout(function() {
+      this.printName.call(this);
+      }.bind(this), 2000);
+      }
+      };
+
+    object.delayedPrint();
+      
+    </script>
+</body>
+</html>
