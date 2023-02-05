@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.1</title>
+</head>
+<body>
+    <script>
+        //The issue with this code is that the call to whoIsStronger(hero.getStrength) is passing the function definition of hero.getStrength rather than the result of the function.
+        // The this keyword within the hero.getStrength function is not being properly set as it refers to the global
+        // object(window) and no longer refers to (hero) as a result health and power properties can not be accessed 
+        // so the values will always return undefined.
+        
+
+        const hero = {
+        health: 5,
+        power: 68,
+        getStrength: function(){
+        if (this.health <= 5){
+        return this.power - 10;
+        } else return this.power;
+        }
+        }
+        function whoIsStronger(getStrength){
+        const myStrength = 82;
+        if (getStrength() < myStrength){
+        return "I am stronger";
+        } else return "You are stronger";
+        }
+        document.write(whoIsStronger(hero.getStrength.bind(hero)));
+    </script>
+</body>
+</html>
