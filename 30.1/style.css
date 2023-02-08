@@ -1,0 +1,77 @@
+body{
+    height: 100vh;
+}
+.container {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .user-card {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    cursor: pointer;
+    vertical-align: top;
+    }
+
+    .user-card img {
+        --s: 200px;   /* the size of the image */
+        --b: 8px;     /* the border thickness*/
+        --g: 14px;    /* the gap */
+        --c: #4ECDC4; /* the color */
+        
+        width: var(--s);
+        aspect-ratio: 1;
+        outline: calc(var(--s)/2) solid #0009;
+        outline-offset: calc(var(--s)/-2);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .user-card img:hover{
+        outline: var(--b) solid var(--c);
+        outline-offset: var(--g);
+      }
+    
+      img{
+        border-radius: 50%;
+      }
+        
+    .user-card h3 {
+     margin: 0;
+     color: #000;
+     }
+        
+    .user-card p {
+     margin: 0;
+     font-size: 14px;
+     }
+
+     
+  
